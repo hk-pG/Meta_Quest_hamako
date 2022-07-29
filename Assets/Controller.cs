@@ -46,8 +46,12 @@ public class Controller : MonoBehaviour {
 
     void Jump() {
 
-        if (Input.GetKeyDown(KeyCode.Space) ||
-                OVRInput.GetDown(OVRInput.Button.One, OVRInput.Controller.RTouch)) {
+        if (
+            Input.GetKeyDown(KeyCode.Space)
+             ||
+                OVRInput.GetDown(OVRInput.Button.One, OVRInput.Controller.RTouch)
+                ) 
+                {
             rb.AddForce(transform.up * jumpPower, ForceMode.VelocityChange);
             Debug.Log("\nジャンプしたお\n");
         }
