@@ -18,10 +18,12 @@ permissions and limitations under the License.
 using UnityEditor;
 
 [InitializeOnLoadAttribute]
-public class OculusSampleFrameworkUtil {
-	static OculusSampleFrameworkUtil() {
+public class OculusSampleFrameworkUtil
+{
+  static OculusSampleFrameworkUtil()
+  {
 #if UNITY_2017_2_OR_NEWER
-		EditorApplication.playModeStateChanged += HandlePlayModeState;
+    EditorApplication.playModeStateChanged += HandlePlayModeState;
 #else
     EditorApplication.playmodeStateChanged += () =>
     {
@@ -34,11 +36,13 @@ public class OculusSampleFrameworkUtil {
 	}
 
 #if UNITY_2017_2_OR_NEWER
-	private static void HandlePlayModeState(PlayModeStateChange state) {
-		if (state == PlayModeStateChange.EnteredPlayMode) {
-			OVRPlugin.SendEvent("load", OVRPlugin.wrapperVersion.ToString(), "sample_framework");
-		}
-	}
+	private static void HandlePlayModeState(PlayModeStateChange state)
+  {
+    if (state == PlayModeStateChange.EnteredPlayMode)
+    {
+      OVRPlugin.SendEvent("load", OVRPlugin.wrapperVersion.ToString(), "sample_framework");
+    }
+  }
 #endif
 }
 
